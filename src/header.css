@@ -1,7 +1,10 @@
+
+
 .header {
     background-color: black;
     overflow: hidden;
     height: 100px;
+    margin-bottom: 50px;
 }
 
 .header p {
