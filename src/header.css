@@ -1,0 +1,13 @@
+.header {
+    background-color: black;
+    overflow: hidden;
+    height: 100px;
+}
+
+.header p {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    bottom: 30px;
+}
