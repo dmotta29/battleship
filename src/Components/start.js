@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/start.css'
+import Ships from './ships'
 
 function grid(x, y){
     var grid = [];

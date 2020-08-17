@@ -24,3 +24,12 @@
       border-radius: 4px;
       text-align: center;
   }
+
+  .grid-container {
+    margin: auto;
+    width: 400px;
+    display: grid;
+    background-color:greenyellow;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 30px);
+  }
