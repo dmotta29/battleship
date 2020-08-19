@@ -17,15 +17,21 @@ function grid(x, y){
   
 
 function Start(){
-    return (
+
+  
+
+  return (
+    
       <div>
         <div className='container1'>
             <input 
-            className ='input'
-            type = 'text'
-            placeholder = 'Your name'></input>
+              className ='input'
+              type = 'text'
+              placeholder = 'Your name'></input>
             <br/>
-            <button className='button'>START GAME</button>
+            <button 
+            className='button'>
+              START GAME</button>
           </div>
           <div>
               <div className='container2'>
@@ -48,5 +54,6 @@ function Start(){
         </div>
     )
 }
+
 
 export default Start
