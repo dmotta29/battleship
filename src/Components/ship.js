@@ -6,8 +6,8 @@ function Ship(props){
 
   const dispatch = useDispatch()
 
-  const handleDragStart = () => {
-    dispatch({type: 'SHIP', payload: {currentShip: props.type }})
+  const handleDragStart = (e) => {
+    dispatch({type: 'SHIP', payload: {currentShip: e.currentTarget }})
   }
 
 

@@ -9,7 +9,7 @@ function Ships(){
   
   return (
     <div>
-      <Ship  type = 'carrier'/>
+      <Ship type = 'carrier'/>
       <Ship type = 'cruiser' />      
       <Ship type = 'cruiser' />
       <Ship type = 'cruiser' />
