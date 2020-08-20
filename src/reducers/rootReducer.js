@@ -1,15 +1,16 @@
 const initialState = {
-  name: 'David'
+  name: 'David',
+  currentShip: null,
 }
 
 function rootReducer(state = initialState, action){
   switch(action.type){
     
-    case 'INCREMENT':
-    return {name: state.name + 1 }
+    case 'UPDATE':
+     return { ...state, ...action.payload }
     
-    case 'DECREMENT':
-    return {name: state.name - 1 }
+    case 'SHIP':
+      return { ...state, ...action.payload }
     
     default: 
       return state 

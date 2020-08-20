@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import Board from './board'
-import Ships from './ships'
+import Ships from './shipsContainer'
 import '../Styles/start.css'
+import { useDispatch } from 'react-redux';
 
 
 function grid(x, y){
@@ -28,6 +29,14 @@ function Start(){
   function handleChange(event){
     setNewName(event.target.value)
   }
+
+  const dispatch = useDispatch()
+
+  function clickHandler(){
+    dispatch({type: 'UPDATE', payload: {name: newName}})
+  }
+
+ 
     return (
       <div>
       
@@ -38,7 +47,9 @@ function Start(){
             placeholder = 'Your name'
             onChange = {handleChange}></input>
             <br/>
-    <button className='button'>START GAME</button>
+        <button 
+        onClick = {clickHandler}
+        className='button'>START GAME</button>
           </div>
           <div>
               <div className='flexbox'>
