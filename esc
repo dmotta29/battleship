@@ -1,0 +1,35 @@
+[33mcommit 29040542c993c5cbabdd5f1d014aedd828455db7[m[33m ([m[1;36mHEAD -> [m[1;32mstart[m[33m, [m[1;31morigin/start[m[33m)[m
+Author: leo <leowaldocontrabajo@gmail.com>
+Date:   Mon Aug 17 11:19:57 2020 -0300
+
+    Ships added to the start screen
+
+[33mcommit 221858ef76e50fff979603b53afaa7b1c3dfe247[m
+Author: leo <leowaldocontrabajo@gmail.com>
+Date:   Sun Aug 16 21:19:04 2020 -0300
+
+    Changing code order
+
+[33mcommit ee090da1f8af0518b9709ffe26613f7f84f293d7[m
+Author: leo <leowaldocontrabajo@gmail.com>
+Date:   Sun Aug 16 21:11:04 2020 -0300
+
+    Game board added
+
+[33mcommit 4110d2e8de42c13c2844c9184f6789059a175fc0[m
+Author: David <dmottabass@gmail.com>
+Date:   Sat Aug 15 16:31:41 2020 -0300
+
+    Start screen designed
+
+[33mcommit 33fccbe4b96b92f9e23b13aeee3527d70775181e[m
+Author: David <dmottabass@gmail.com>
+Date:   Sat Aug 15 15:42:00 2020 -0300
+
+    Header added
+
+[33mcommit 098d5d104eed01a1981267445bedd2f63ce0f405[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: David <dmottabass@gmail.com>
+Date:   Fri Aug 14 20:05:05 2020 -0300
+
+    initial commit

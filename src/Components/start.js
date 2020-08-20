@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Board from './board'
 import Ships from './ships'
 import '../Styles/start.css'
+
 
 function grid(x, y){
     var grid = [];
@@ -16,26 +18,33 @@ function grid(x, y){
   }
   
 
+
+//onChange and DnD
+
 function Start(){
 
-  
+  const [newName, setNewName] = useState(null)
 
-  return (
-    
+  function handleChange(event){
+    setNewName(event.target.value)
+  }
+    return (
       <div>
+      
         <div className='container1'>
             <input 
-              className ='input'
-              type = 'text'
-              placeholder = 'Your name'></input>
+            className ='input'
+            type = 'text'
+            placeholder = 'Your name'
+            onChange = {handleChange}></input>
             <br/>
-            <button 
-            className='button'>
-              START GAME</button>
+    <button className='button'>START GAME</button>
           </div>
           <div>
-              <div className='container2'>
-              <Ships/>
+              <div className='flexbox'>
+              
+                <Ships/>
+                <Board/>
                 <div className='grid-container'>
                 {grid(10,10).map((row)=>{
                   return (
