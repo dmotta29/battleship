@@ -21,16 +21,16 @@ function Board(){
 
   return (
     <div>
-    <div className='grid-container'>
-    {grid(10,10).map((row)=>{
-      return (
-    <div clasName='row'>{row.map(cell=> {
-      return (<div className='cell'>{cell}</div>)})}
-    </div>)
-      })
-    }  
-     
-    </div>
+        <div className='grid-container'>
+        {grid(10,10).map((row)=>{
+          return (
+        <div className='row'>{row.map(cell=> {
+          return (<div className='cell'>{cell}</div>)})}
+        </div>)
+          })
+        }  
+        
+        </div>
 
      </div>
   )

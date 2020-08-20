@@ -38,8 +38,8 @@ function Start(){
             onChange = {handleChange}></input>
             <br/>
         <button 
-        onClick = {clickHandler}
-        className='button'>START GAME</button>
+            onClick = {clickHandler}
+            className='button'>START GAME</button>
           </div>
           <div>
               <div className='flexbox'>
