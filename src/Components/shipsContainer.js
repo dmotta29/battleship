@@ -9,11 +9,21 @@ function Ships(){
   
   return (
     <div>
-      <Ship type = 'carrier'/>
-      <Ship type = 'cruiser' />      
-      <Ship type = 'cruiser' />
-      <Ship type = 'cruiser' />
-      <Ship type = 'submarine' />
+      <Ship 
+        slots = {4}
+        type = 'carrier'/>
+      <Ship 
+        slots = {3}
+        type = 'cruiser' />      
+      <Ship 
+        slots = {3}
+        type = 'cruiser' />
+      <Ship 
+        slots = {3}
+        type = 'cruiser' />
+      <Ship
+        slots = {2}
+        type = 'submarine' />
     </div>
   )
 }

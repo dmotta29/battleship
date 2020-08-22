@@ -31,9 +31,9 @@
   }
 
   .grid-container {
-    width: 400px;
+    width: 450px;
     display: grid;
     background-color:greenyellow;
-    grid-template-columns: repeat(10, 10%);
+    grid-template-columns: repeat(10, 30px);
     grid-template-rows: repeat(10, 30px);
   }

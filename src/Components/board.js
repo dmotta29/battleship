@@ -1,31 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Styles/board.css'
 import Ships from './shipsContainer'
 import { useSelector } from 'react-redux'
 
-function grid(x, y){
-  var grid = [];
-  
-  for(let i=1; i<=y; i++){
-    var row = [];
-    for(let j=1; j<=x; j++){
-    row.push(j)
-  }
-  grid.push(row)
-  }
-  return grid;
-}
-
-
 function Board(){
+  const initialGrid = []
+  initialGrid.length = 10
+  const [grid, setGrid] = useState(initialGrid.fill(initialGrid.slice().fill(null)))
+
+  const currentShip = useSelector((state)=> state.currentShip)
 
   return (
     <div>
         <div className='grid-container'>
-        {grid(10,10).map((row)=>{
+        {grid.map((row, i)=>{
           return (
-        <div className='row'>{row.map(cell=> {
-          return (<div className='cell'>{cell}</div>)})}
+        <div key= {i} className='row'>{row.map((cell, j)=> {
+          const classes = `cell ${cell ? cell : ''}`
+          return (<div
+            onDragOver = {(e)=> {
+              e.preventDefault()}} 
+            onDrop = {(e) => {
+              const nextGrid = grid.map(r => r.slice()).slice()
+              for(let k = 0; k < currentShip.slots; k++ ){
+                nextGrid[i][j + k] = currentShip.type
+              }
+              setGrid(nextGrid)
+            } }
+            key = {i + '' + j}
+            className={classes}
+            style = {{height: '30px'}}
+            > </div>)})}
         </div>)
           })
         }  
