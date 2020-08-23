@@ -3,7 +3,7 @@ import Header from './Components/header'
 import Start from './Components/start'
 import GameScreen from './Components/gamescreen'
 import {useSelector, useDispatch} from 'react-redux'
-
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 
 function App() {
@@ -12,13 +12,18 @@ function App() {
   const dispatch = useDispatch()
 
   return (
-    <div>
-      <h1>Name: {name}</h1>
-      <Header/>
-      <Start/>
-      <GameScreen/>
-    </div>
-  );
+    <Router>
+      <div>
+        {/*<h1>Name: {name}</h1>*/}
+        <Header/>
+       
+      </div>
+        <Switch>
+          <Route exact path='/' component = {Start}/>
+          <Route exact path='/gamescreen' component = {GameScreen}/>
+        </Switch>
+      </Router>
+    );
 }
 
 export default App;

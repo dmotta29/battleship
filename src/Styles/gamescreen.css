@@ -1,0 +1,21 @@
+.surrender {
+  margin-top: 20px;
+  position: relative;
+  left: 45%;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 2%;
+
+}
+
+.boards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

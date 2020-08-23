@@ -3,17 +3,11 @@ import Board from './board'
 import Ships from './shipsContainer'
 import '../Styles/start.css'
 import { useDispatch } from 'react-redux';
+import {BrowserRouter as Router, Link} from 'react-router-dom'
 
-/*
-
-
-*/
-
-
-//onChange and DnD
 
 function Start(){
-
+  
   const [newName, setNewName] = useState(null)
 
   function handleChange(event){
@@ -26,8 +20,9 @@ function Start(){
     dispatch({type: 'UPDATE', payload: {name: newName}})
   }
 
- 
+
     return (
+     <Link> 
       <div>
       
         <div className='container1'>
@@ -37,10 +32,12 @@ function Start(){
             placeholder = 'Your name'
             onChange = {handleChange}></input>
             <br/>
+        <Link to = '/gamescreen'>
         <button 
             onClick = {clickHandler}
             className='button'>START GAME</button>
-          </div>
+        </Link>
+            </div>
           <div>
               <div className='flexbox'>
               
@@ -51,6 +48,7 @@ function Start(){
           
         </div>
         </div>
+        </Link>
     )
 }
 
