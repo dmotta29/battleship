@@ -2,19 +2,16 @@
 
 .carrier {
   height: 30px;
-  width: 120px;
   background-color: yellow;
 }
 
 .cruiser {
   height: 30px;
-  width: 90px;
   background-color:lightpink;
 }
 
 .submarine {
   height: 30px;
-  width: 60px;
   background-color: green;
 }
 

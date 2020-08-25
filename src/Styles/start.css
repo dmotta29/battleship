@@ -31,9 +31,13 @@
   }
 
   .grid-container {
-    width: 450px;
+    width: fit-content;
     display: grid;
-    background-color:greenyellow;
-    grid-template-columns: repeat(10, 30px);
-    grid-template-rows: repeat(10, 30px);
+    background-color: mintcream;
+    border: 1px solid;
+    grid-template-columns: repeat(10, 30px);  
+  }
+
+  .cell {
+    border: 1px solid;
   }

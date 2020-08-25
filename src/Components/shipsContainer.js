@@ -9,9 +9,11 @@ function Ships(){
   
   return (
     <div>
+      <p>Carrier</p>
       <Ship 
         slots = {4}
         type = 'carrier'/>
+        <p>Cruiser</p>
       <Ship 
         slots = {3}
         type = 'cruiser' />      
@@ -21,7 +23,8 @@ function Ships(){
       <Ship 
         slots = {3}
         type = 'cruiser' />
-      <Ship
+      <p>Submarine</p>
+        <Ship
         slots = {2}
         type = 'submarine' />
     </div>

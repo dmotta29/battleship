@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Board from './board'
 import Ships from './shipsContainer'
 import '../Styles/start.css'
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {BrowserRouter as Router, Link} from 'react-router-dom'
 
 
@@ -21,8 +21,8 @@ function Start(){
   }
 
 
-    return (
-     <Link> 
+    return ( 
+      
       <div>
       
         <div className='container1'>
@@ -32,15 +32,14 @@ function Start(){
             placeholder = 'Your name'
             onChange = {handleChange}></input>
             <br/>
-        <Link to = '/gamescreen'>
+        <Link to ='/gamescreen'>
         <button 
             onClick = {clickHandler}
             className='button'>START GAME</button>
         </Link>
             </div>
           <div>
-              <div className='flexbox'>
-              
+              <div className='container2'>
                 <Ships/>
                 <Board/>  
               </div>
@@ -48,7 +47,7 @@ function Start(){
           
         </div>
         </div>
-        </Link>
+      
     )
 }
 
