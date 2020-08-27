@@ -1,17 +1,28 @@
 
 
-.carrier {
+.cell.carrier,.carrier {
   height: 30px;
   background-color: yellow;
 }
 
-.cruiser {
+.cell.cruiser,.cruiser {
   height: 30px;
   background-color:lightpink;
 }
 
-.submarine {
+.cell.submarine,.submarine {
   height: 30px;
   background-color: green;
 }
 
+.cell.missed,.missed {
+  background-color: lightskyblue;
+}
+
+.cell.hit,.hit{
+  background-color: orange;
+}
+
+.cell.destroyed,.destroyed {
+  background-color: red;
+}

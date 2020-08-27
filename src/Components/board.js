@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux'
 import Cell from './cell'
 
 
-function Board(){
+function Board({grid, player}){
  
-  const grid = useSelector((state)=> state.grid)
+  
 
   const currentShip = useSelector((state)=> state.currentShip)
 
@@ -18,6 +18,7 @@ function Board(){
         <div key= {i} className='row'>{row.map((cell, j)=> {
           
           return (<Cell 
+            player={player}
             data={cell} 
             grid={grid} 
             i={j} 

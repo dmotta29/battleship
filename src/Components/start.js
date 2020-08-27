@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import Board from './board'
 import Ships from './shipsContainer'
 import '../Styles/start.css'
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {BrowserRouter as Router, Link} from 'react-router-dom'
+
 
 
 function Start(){
@@ -13,6 +14,8 @@ function Start(){
   function handleChange(event){
     setNewName(event.target.value)
   }
+
+  const userGrid = useSelector((state)=> state.userGrid)
 
   const dispatch = useDispatch()
 
@@ -41,7 +44,9 @@ function Start(){
           <div>
               <div className='container2'>
                 <Ships/>
-                <Board/>  
+                <Board 
+                  grid={userGrid}
+                  />  
               </div>
           
           
