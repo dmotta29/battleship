@@ -9,6 +9,12 @@
   display: flex;
 }
 
+.container2 >*{
+  padding-top: 16px;
+  flex-basis: 50%;
+  justify-content: center;
+}
+
 .button {
     background-color: #4CAF50;
     border: none;

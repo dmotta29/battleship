@@ -8,7 +8,7 @@ function Ships(){
 
   
   return (
-    <div>
+    <div className='ships-container'>
       <p>Carrier</p>
       <Ship 
         slots = {4}

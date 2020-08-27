@@ -15,6 +15,7 @@ function GameScreen(){
     initialGrid.fill(initialGrid.slice().fill(null))
     dispatch({type: 'UPDATEGRID', payload: {userGrid: initialGrid}})
     dispatch({type: 'CPUGRID', payload: {cpuGrid: createCpuGrid()}})
+    dispatch({type:'PLAYING', payload: {playing: false }})
   }
 
   const name = useSelector((state)=> state.name) 
@@ -25,14 +26,15 @@ function GameScreen(){
   return (
     
         <div data-testid = 'gamescreen'>
-          <h1>Now playing: {name}</h1>
+          <h1 className='player-name'>Now playing: {name}</h1>
           <div className = 'boards'>
             <Board 
               grid={userGrid}
               player={name}/>
             <Board 
               grid={cpuGrid}
-              player='cpu'/>
+              player='cpu'
+              />
           </div>
           <Link to ='/'>
             <button

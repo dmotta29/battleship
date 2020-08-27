@@ -27,6 +27,9 @@ function rootReducer(state = initialState, action){
       
     case 'CPUGRID':
         return { ...state, ...action.payload }
+
+    case 'PLAYING':
+        return { ...state, ...action.payload }
     
     default: 
       return state 

@@ -1,4 +1,9 @@
-
+.ships-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 16px;
+}
 
 .cell.carrier,.carrier {
   height: 30px;

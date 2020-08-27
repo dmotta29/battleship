@@ -5,9 +5,8 @@ import '../Styles/start.css'
 import {useDispatch, useSelector} from 'react-redux';
 import {BrowserRouter as Router, Link} from 'react-router-dom'
 
-
-
 function Start(){
+
   
   const [newName, setNewName] = useState(null)
 
@@ -21,6 +20,7 @@ function Start(){
 
   function clickHandler(){
     dispatch({type: 'UPDATE', payload: {name: newName}})
+    dispatch({type: 'UPDATE', payload: {playing: true}})
   }
 
 
@@ -44,7 +44,7 @@ function Start(){
           <div>
               <div className='container2'>
                 <Ships/>
-                <Board 
+                <Board
                   grid={userGrid}
                   />  
               </div>

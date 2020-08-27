@@ -5,7 +5,9 @@ import { useSelector, useDispatch } from 'react-redux'
 function Cell({data, grid, i, j, player}){
   const [hit, setHit] = useState(false)
 
-  const [disabled, setDisabled] = useState(false)
+  const playing = useSelector((state)=> state.playing )
+
+  const [disabled, setDisabled] = useState(!playing)
 
   const dispatch = useDispatch()
 
@@ -38,12 +40,14 @@ function Cell({data, grid, i, j, player}){
       classes+= ' missed'
     }
 
-    if(data.type){
+    if(data.type && player !== 'cpu'){
       classes += ' ' + data.type
     }
   }
   
   const onClick = () =>{
+    
+     
     setDisabled(true)
     const nextGrid = grid.map(r => r.slice()).slice()
     let value=nextGrid[j][i]
@@ -64,6 +68,7 @@ function Cell({data, grid, i, j, player}){
       dispatch({type:'UPDATEGRID', payload: { userGrid: nextGrid }})
     }
   }
+
 
   return (
     <button
