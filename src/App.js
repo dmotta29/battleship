@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Components/header'
+import Start from './Components/start'
+import GameScreen from './Components/gamescreen'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import rootReducer from './reducers/rootReducer'
+import endGame from './Components/surrender';
+import win from './Components/win'
 
-function App() {
+const store = createStore(rootReducer)
+
+
+function App({label}) {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+    <Router>
+      <div 
+        label = 'correct'
+        data-testid='App'>
+        {/*<h1>Name: {name}</h1>*/} 
+        <Header/>
+       
+      </div>
+        <Switch>
+          <Route exact path ='/' component = {Start}/>
+          <Route exact path ='/gamescreen' component = {GameScreen}/>
+          <Route exact path ='/endgame' component = {endGame}/>
+          <Route exact path ='/win' component = {win}/>
+        </Switch>
+      </Router>
+      </Provider>
+    );
 }
 
 export default App;

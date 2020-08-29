@@ -1,0 +1,33 @@
+.ships-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 16px;
+}
+
+.cell.carrier,.carrier {
+  height: 30px;
+  background-color: yellow;
+}
+
+.cell.cruiser,.cruiser {
+  height: 30px;
+  background-color:lightpink;
+}
+
+.cell.submarine,.submarine {
+  height: 30px;
+  background-color: green;
+}
+
+.cell.missed,.missed {
+  background-color: lightskyblue;
+}
+
+.cell.hit,.hit{
+  background-color: orange;
+}
+
+.cell.destroyed,.destroyed {
+  background-color: red;
+}
