@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
-import Ships from './shipsContainer'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import Cell from './cell'
+import { useHistory } from 'react-router-dom'
 
 
 function Board({grid, player}){
  
   
+  const history = useHistory()
+  const appState = useSelector(state => state)
 
-  const currentShip = useSelector((state)=> state.currentShip)
+  if (!appState.cpuLives) {
+    history.push('/win', {player: appState.name})
+  } else if (!appState.playerLives) {
+    history.push('/win', {player: 'cpu'})
+  }
 
   return (
     <div>
@@ -20,7 +26,6 @@ function Board({grid, player}){
           return (<Cell 
             player={player}
             data={cell} 
-            grid={grid} 
             i={j} 
             j={i}
             key = {i + '' + j}/>) 

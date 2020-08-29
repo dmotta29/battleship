@@ -4,8 +4,9 @@ import {BrowserRouter as Router, Link} from 'react-router-dom'
 import Board from './board'
 import {useSelector, useDispatch} from 'react-redux'
 import { createCpuGrid } from '../reducers/rootReducer'
+import CPU from './cpu'
 
-function GameScreen(){
+function GameScreen() {
 
 
   const dispatch = useDispatch()
@@ -18,25 +19,26 @@ function GameScreen(){
     dispatch({type:'PLAYING', payload: {playing: false }})
   }
 
-  const name = useSelector((state)=> state.name) 
+  const name = useSelector((state)=> state.currentPlayer)
+  const playerName = useSelector(({name}) => name)
   const userGrid = useSelector((state)=> state.userGrid)
   const cpuGrid = useSelector((state)=> state.cpuGrid)
 
 
   return (
-    
         <div data-testid = 'gamescreen'>
+        <CPU/>  
           <h1 className='player-name'>Now playing: {name}</h1>
           <div className = 'boards'>
             <Board 
               grid={userGrid}
-              player={name}/>
+              player={playerName}/>
             <Board 
               grid={cpuGrid}
               player='cpu'
               />
           </div>
-          <Link to ='/'>
+          <Link to ='/endgame'>
             <button
               onClick={onClickHandler} 
               className='surrender'>SURRENDER</button>

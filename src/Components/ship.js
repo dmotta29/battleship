@@ -10,6 +10,8 @@ function Ship(props){
 
   const dispatch = useDispatch()
 
+
+
   const handleDragStart = (e) => {
     dispatch({type: 'SHIP', payload: {currentShip: {...props, vertical, lives: props.slots}}})
   }

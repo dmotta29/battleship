@@ -2,17 +2,21 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 
-function Cell({data, grid, i, j, player}){
+
+function Cell({data, i, j, player}){
+  const userGrid = useSelector((state)=> state.userGrid )
+  const cpuGrid = useSelector((state)=> state.cpuGrid )
+  const lives = useSelector((state) => state.cpuLives)
   const [hit, setHit] = useState(false)
-
   const playing = useSelector((state)=> state.playing )
-
-  const [disabled, setDisabled] = useState(!playing)
-
+  const currentPlayer = useSelector(({currentPlayer}) => currentPlayer)
+  const [disabled, setDisabled] = useState(!playing || currentPlayer === 'cpu' || player !== 'cpu')
   const dispatch = useDispatch()
+  const playedNumbers = useSelector(({cpuPlayedNumbers}) => cpuPlayedNumbers)
 
   function onDrop() {
-    const nextGrid = grid.map(r => r.slice()).slice()
+    const nextGrid = userGrid.map(r => r.slice()).slice()
+
     for(let k = 0; k < currentShip.slots; k++ ){
      
       if (!currentShip.vertical){
@@ -25,60 +29,63 @@ function Cell({data, grid, i, j, player}){
     dispatch({type:'UPDATEGRID', payload: { userGrid: nextGrid }})
   } 
 
-   const onDragOver = (e)=> {
-    e.preventDefault()}
+  const onDragOver = (e)=> {
+    e.preventDefault()
+  }
 
   const currentShip = useSelector((state)=> state.currentShip)
   let classes = `cell`
   
-  if(data){
-    if(data.destroyed){
+  if (data) {
+    if (data.destroyed) {
       classes+= ' destroyed'
-    } else if(hit){
+    } else if (hit || (!data.missed && player !== 'cpu' && playedNumbers.includes(+(i + '' + j)))) {
       classes+= ' hit'
-    } else if(data.missed){
+    } else if (data.missed) {
       classes+= ' missed'
     }
 
-    if(data.type && player !== 'cpu'){
+    if (data.type && player !== 'cpu') {
       classes += ' ' + data.type
-    }
+    }  
   }
   
-  const onClick = () =>{
+  const onClick = () => {
+    let wasHit = false
+    const nextGrid = cpuGrid.map(r => r.slice()).slice()
+    let value = nextGrid[j][i]
     
-     
-    setDisabled(true)
-    const nextGrid = grid.map(r => r.slice()).slice()
-    let value=nextGrid[j][i]
-    if(value){
+    if (value) {
       value.lives--
-      if(value.lives === 0){
+      wasHit = true
+      
+      if (value.lives === 0) {
         value.destroyed = true
-      } else{
+      } else {
         setHit(true)
       }
-    } else{
+    } else {
       value = {missed: true}
+      nextGrid[j][i] = value
     }
-    nextGrid[j][i] = value
-    if(player === 'cpu'){
-      dispatch({type:'CPUGRID', payload: { cpuGrid: nextGrid }})
-    } else{
-      dispatch({type:'UPDATEGRID', payload: { userGrid: nextGrid }})
-    }
-  }
+    
+    dispatch({type:'UPDATEGRID', payload: {
+      cpuGrid: nextGrid,
+      cpuLives: lives - +wasHit,
+      currentPlayer: 'cpu'
+    }})
 
+    setDisabled(true)
+  }
 
   return (
     <button
       disabled={disabled}
       onClick={onClick}
-      onDragOver = {onDragOver} 
-      onDrop = {onDrop}
-    
-    className={classes}
-    style = {{height: '30px'}}
+      onDragOver={onDragOver} 
+      onDrop={onDrop}
+      className={classes}
+      style={{height: '30px'}}
     > </button>)
 }
 

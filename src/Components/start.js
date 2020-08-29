@@ -7,7 +7,6 @@ import {BrowserRouter as Router, Link} from 'react-router-dom'
 
 function Start(){
 
-  
   const [newName, setNewName] = useState(null)
 
   function handleChange(event){
@@ -19,8 +18,7 @@ function Start(){
   const dispatch = useDispatch()
 
   function clickHandler(){
-    dispatch({type: 'UPDATE', payload: {name: newName}})
-    dispatch({type: 'UPDATE', payload: {playing: true}})
+    dispatch({type: 'UPDATE', payload: {name: newName, playing: true, currentPlayer: newName}})
   }
 
 

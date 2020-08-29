@@ -11,22 +11,22 @@ function Ships(){
     <div className='ships-container'>
       <p>Carrier</p>
       <Ship 
-        slots = {4}
-        type = 'carrier'/>
+        slots={4}
+        type='carrier'/>
         <p>Cruiser</p>
       <Ship 
-        slots = {3}
-        type = 'cruiser' />      
+        slots={3}
+        type='cruiser' />      
       <Ship 
-        slots = {3}
+        slots={3}
         type = 'cruiser' />
       <Ship 
-        slots = {3}
-        type = 'cruiser' />
+        slots={3}
+        type='cruiser' />
       <p>Submarine</p>
         <Ship
-        slots = {2}
-        type = 'submarine' />
+        slots={2}
+        type='submarine' />
     </div>
   )
 }
